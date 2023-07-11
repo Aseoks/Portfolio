@@ -1,0 +1,13 @@
+#displayProperty:hover #hello {
+  display: none;
+}
+
+#displayProperty:hover #about {
+  display: block;
+  cursor: pointer;
+  text-decoration: underline;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
