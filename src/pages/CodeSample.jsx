@@ -1,18 +1,321 @@
-import React from "react";
-import { BackBrick, Moveingtext, MoveingtextBottom } from "../components";
-
+import React, { useState } from "react";
+import {
+  BackBrick,
+  Header,
+  Moveingtext,
+  MoveingtextBottom,
+  FormSample,
+} from "../components";
+import "../style/CodeSample.css";
+import { CodeBlock } from "react-code-blocks";
 
 const CodeSample = () => {
+  const [toggleNumber, setToggleNumber] = useState(1);
+
+  const changeToggleNumber = (index) => {
+    setToggleNumber(index);
+  };
+
+  const formCodeSample = `import React, { useState } from "react";
+  const FormSample = () => {
+    const [record, setRecord] = useState({
+      room: "",
+      arrival: "",
+      departure: "",
+      name: "",
+      surname: "",
+      email: "",
+      guests: "1",
+      pets: "0",
+    });
+  
+    const handleInputChange = (e) => {
+      setRecord({ ...record, [e.target.name]: e.target.value });
+    };
+  
+    const addRecordToFireStore = (event) => {
+      event.preventDefault();
+      if (record.arrival === "") {
+        alert("please choose arrival date");
+      } else if (record.departure === "") {
+        alert("please choose departure date");
+      } else if (record.departure < record.arrival) {
+        alert("Arrival must be before departure");
+      } else if (
+        record.name === "" ||
+        record.surname === "" ||
+        record.email === ""
+      ) {
+        alert("please fill all inputs");
+      } else {
+        console.log(record);
+        alert('Booking adde');
+      }
+    };
+  
+    return (
+      <>      
+        {/* Form */}
+        <form className="px-8 pb-4 flex flex-col gap-2 w-fit" noValidate>
+          {/* Room choice */}
+          <div className="flex justify-between">
+            <div>Room</div>
+            <select
+              id="room"
+              name="room"
+              onChange={(e) => handleInputChange(e)}
+              className="text-end"
+            >
+              <option value={record.room} hidden>
+                Select your room
+              </option>
+                <option value={record.room.value}>Pet friendly room</option>
+                <option value={record.room.value}>Shared room</option>
+                <option value={record.room.value}>Shared room with bathroom</option>
+                <option value={record.room.value}>Pet friendly private room</option>
+                <option value={record.room.value}>Two people room</option>
+                <option value={record.room.value}>Three people room</option>
+            </select>
+          </div>
+  
+          {/* Arrival */}
+          <div className="flex justify-between">
+            <div>Arrival</div>
+  
+            <input
+              id="arrival"
+              name="arrival"
+              value={record.arrival}
+              onChange={(e) => handleInputChange(e)}
+              type="date"
+            />
+          </div>
+          {record.arrival === "" ? (
+            <p className="text-red-600 text-end text-xs">Choose arrival date</p>
+          ) : (
+            ""
+          )}
+  
+          {/* Departure */}
+          <div className="flex justify-between">
+            <div>Departure</div>
+            <input
+              id="departure"
+              name="departure"
+              value={record.departure}
+              onChange={(e) => handleInputChange(e)}
+              type="date"
+            />
+          </div>
+          {record.departure === "" ? (
+            <p className="text-red-600 text-end text-xs">Choose departure date</p>
+          ) : (
+            ""
+          )}
+  
+          {record.departure < record.arrival ? (
+            <p className="text-red-600 text-end text-xs">
+              Departure can't be before arrival
+            </p>
+          ) : (
+            ""
+          )}
+  
+          {/* Name */}
+          <div className="flex justify-between">
+            <div>Name</div>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              value={record.name}
+              onChange={(e) => handleInputChange(e)}
+              placeholder="Jhon"
+              className="text-end"
+              required={true}
+            />
+          </div>
+  
+          {/* Surame */}
+          <div className="flex justify-between">
+            <div>Surname</div>
+            <input
+              name="surname"
+              type="text"
+              value={record.surname}
+              onChange={(e) => handleInputChange(e)}
+              placeholder="Cowalski"
+              className="text-end"
+            />
+          </div>
+  
+          {/* Email */}
+          <div className="flex justify-between">
+            <div>E-mail</div>
+            <input
+              name="email"
+              type="email"
+              value={record.email}
+              onChange={(e) => handleInputChange(e)}
+              placeholder="email@email.com"
+              className="text-end"
+            />
+          </div>
+  
+          {/* Guests */}
+          <div className="flex justify-between">
+            <div>
+              Guests number
+              </div>
+                <input
+                  name="guests"
+                  value={record.guests}
+                  type="number"
+                  min="1"
+                  max="5"
+                  onChange={(e) => handleInputChange(e)}
+                  placeholder="1"
+                  className="text-end"
+                />
+              </div>
+              
+              {/* Pets */}
+              <div className="flex justify-between">
+                <div>Pets number</div>
+                <input
+                  name="pets"
+                  value={record.pets}
+                  type="number"
+                  min="0"
+                  max="2"
+                  onChange={(e) => handleInputChange(e)}
+                  placeholder="0"
+                  className="text-end"
+                />
+              </div>
+            
+            {/* Submit */}
+            <button
+              onClick={addRecordToFireStore}
+              className="bg-gray-600 text-white p-2 rounded hover:bg-gray-800"
+            >
+              Book
+            </button>        
+        </form>
+      </>
+    );
+  };
+  
+  export default FormSample;`;
+
   return (
     <>
-      <Moveingtext text="Code Sample" />
-      <div className="h-full grid md:grid-cols-2 md:grid-rows-2 w-full  ">
-        <BackBrick pageName="Code Sample" color="bg-fuchsia-400" hoverColor="hover:bg-fuchsia-500" />
-        <div className="border-2 border-black">1</div>
-        <div className="border-2 border-black">2</div>
-        <div className="border-2 border-black">3</div>
+      <Moveingtext text="Code Samples" />
+      <div className=" grid md:grid-cols-2 md:grid-rows-2 w-full h-full">
+        <BackBrick
+          pageName="Code Samples"
+          color="bg-fuchsia-400"
+          hoverColor="hover:bg-fuchsia-500"
+        />
+        {/* Code Version */}
+        <div className="border-2 border-black order-2 md:order-1  overflow-x-hidden overflow-y-auto pb-4">
+          <div className={toggleNumber === 1 ? "block" : "hidden"}>
+            <Header text="Form Code:" />
+
+            <div className="py-4 h-fit md:h-12">
+              <CodeBlock
+                text={formCodeSample}
+                language="jsx"
+                showLineNumbers={true}
+                theme="atom-one-dark"
+                startingLineNumber={1}
+                codeBlock={{ lineNumbers: true, wrapLines: true }}
+              />
+            </div>
+          </div>
+          <div className={toggleNumber === 2 ? "block" : "hidden"}>
+            <Header text="API Code:" />
+          </div>
+          <div className={toggleNumber === 3 ? "block" : "hidden"}>
+            <Header text="CRUD Code:" />
+          </div>
+          <div className={toggleNumber === 4 ? "block" : "hidden"}>
+            <Header text="Validation Code:" />
+          </div>
+          <div className={toggleNumber === 5 ? "block" : "hidden"}>
+            <Header text="Code" />
+          </div>
+          <div className={toggleNumber === 6 ? "block" : "hidden"}>
+            <Header text="Code" />
+          </div>
+        </div>
+        <div className="border-2 border-black button-group px-8 md:px-32 py-12  order-1 md:order-2">
+          <div className="h-full w-full md:h-1/2 md:w-3/4 mx-auto grid gap-2 md:gap-y-5 grid-cols-2 md:grid-cols-3 grid-flow-dense justify-items-center">
+            <button
+              className="w-32 min-w-fit h-12 bg-fuchsia-100 hover:bg-fuchsia-300 focus:ring-4 ring-fuchsia-300 ring-inset font-mono md:px-4 md:py-2"
+              onClick={() => changeToggleNumber(1)}
+            >
+              Form
+            </button>
+            <button
+              className="w-32 min-w-fit h-12 bg-fuchsia-100 hover:bg-fuchsia-300 focus:ring-4 ring-fuchsia-300 ring-inset font-mono md:px-4 md:py-2"
+              onClick={() => changeToggleNumber(2)}
+            >
+              API
+            </button>
+            <button
+              className="w-32 min-w-fit h-12 bg-fuchsia-100 hover:bg-fuchsia-300 focus:ring-4 ring-fuchsia-300 ring-inset font-mono md:px-4 md:py-2"
+              onClick={() => changeToggleNumber(3)}
+            >
+              CRUD
+            </button>
+            <button
+              className="w-32 min-w-fit h-12 bg-fuchsia-100 hover:bg-fuchsia-300 focus:ring-4 ring-fuchsia-300 ring-inset font-mono md:px-4 md:py-2"
+              onClick={() => changeToggleNumber(4)}
+            >
+              Validation
+            </button>
+            <button
+              className="w-32 min-w-fit h-12 bg-fuchsia-100 hover:bg-fuchsia-300 focus:ring-4 ring-fuchsia-300 ring-inset font-mono md:px-4 md:py-2"
+              onClick={() => changeToggleNumber(5)}
+            >
+              5
+            </button>
+            <button
+              className="w-32 min-w-fit h-12 bg-fuchsia-100 hover:bg-fuchsia-300 focus:ring-4 ring-fuchsia-300 ring-inset font-mono md:px-4 md:py-2"
+              onClick={() => changeToggleNumber(6)}
+            >
+              6
+            </button>
+          </div>
+        </div>
+
+        {/* Live Version */}
+        <div className="border-2 border-black order-3 md:order-3 overflow-auto">
+          <div className={toggleNumber === 1 ? "block" : "hidden"}>
+            <Header text="Form Live: " />
+            <div className="py-4 h-fit md:h-12">
+              <FormSample />
+            </div>
+          </div>
+          <div className={toggleNumber === 2 ? "block" : "hidden"}>
+            <Header text="API Live: " />
+          </div>
+          <div className={toggleNumber === 3 ? "block" : "hidden"}>
+            <Header text="CRUD Live: " />
+          </div>
+          <div className={toggleNumber === 4 ? "block" : "hidden"}>
+            <Header text="Validation Live: " />
+          </div>
+          <div className={toggleNumber === 5 ? "block" : "hidden"}>
+            <Header text="Live" />
+          </div>
+          <div className={toggleNumber === 6 ? "block" : "hidden"}>
+            <Header text="Live" />
+          </div>
+        </div>
       </div>
-      <MoveingtextBottom text="Code Sample" />
+      <MoveingtextBottom text="Code Samples" />
     </>
   );
 };

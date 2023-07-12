@@ -6,37 +6,9 @@ import {
   MoveingtextBottom,
 } from "../components";
 import { Link } from "react-router-dom";
+import WojciechMeck from "../documentsToDownload/WojciechMeck.pdf"
 
 const AboutMe = () => {
-
-    
-    // Function will execute on click of button
-    const download = (fileName) => {
-      // using Java Script method to get PDF file
-      fetch(`../../public/documentsToDownload/${fileName}.pdf`).then(response => {
-          response.blob().then(blob => {
-              // Creating new object of PDF file
-              const fileURL = window.URL.createObjectURL(blob);
-              // Setting various property values
-              let alink = document.createElement('a');
-              alink.href = fileURL;
-              alink.download = `${fileName}.pdf`;
-              alink.click();
-          })
-      })
-  }
-
-  const downloadCV = () => {
-    download('WojciechMeck')
-  }
-
-  const downloadCL = () => {
-    download('CoverLetter')
-  }
-
-    
-
-
 
   return (
     <>
@@ -185,7 +157,13 @@ const AboutMe = () => {
           <Header text="My Documents" />
           <div className="flex gap-5 px-8 pt-12">
             <div>
-              <div className="flex flex-col items-center hover:cursor-pointer " onClick={downloadCV}>
+            <a 
+              href={WojciechMeck}
+              download="WojciechMeckCoverLetter"
+              target="_blank"
+              rel="noreferrer"
+            >  
+              <button className="flex flex-col items-center hover:cursor-pointer ">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="48"
@@ -195,19 +173,27 @@ const AboutMe = () => {
                   <path d="M12.819 14.427c.064.267.077.679-.021.948-.128.351-.381.528-.754.528h-.637v-2.12h.496c.474 0 .803.173.916.644zm3.091-8.65c2.047-.479 4.805.279 6.09 1.179-1.494-1.997-5.23-5.708-7.432-6.882 1.157 1.168 1.563 4.235 1.342 5.703zm-7.457 7.955h-.546v.943h.546c.235 0 .467-.027.576-.227.067-.123.067-.366 0-.489-.109-.198-.341-.227-.576-.227zm13.547-2.732v13h-20v-24h8.409c4.858 0 3.334 8 3.334 8 3.011-.745 8.257-.42 8.257 3zm-12.108 2.761c-.16-.484-.606-.761-1.224-.761h-1.668v3.686h.907v-1.277h.761c.619 0 1.064-.277 1.224-.763.094-.292.094-.597 0-.885zm3.407-.303c-.297-.299-.711-.458-1.199-.458h-1.599v3.686h1.599c.537 0 .961-.181 1.262-.535.554-.659.586-2.035-.063-2.693zm3.701-.458h-2.628v3.686h.907v-1.472h1.49v-.732h-1.49v-.698h1.721v-.784z" />
                 </svg>
                 <p>CV</p>
-              </div>
+              </button>
+              </a>
             </div>
-            <div className="flex flex-col items-center hover:cursor-pointer" onClick={downloadCL}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="48"
-                height="48"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12.819 14.427c.064.267.077.679-.021.948-.128.351-.381.528-.754.528h-.637v-2.12h.496c.474 0 .803.173.916.644zm3.091-8.65c2.047-.479 4.805.279 6.09 1.179-1.494-1.997-5.23-5.708-7.432-6.882 1.157 1.168 1.563 4.235 1.342 5.703zm-7.457 7.955h-.546v.943h.546c.235 0 .467-.027.576-.227.067-.123.067-.366 0-.489-.109-.198-.341-.227-.576-.227zm13.547-2.732v13h-20v-24h8.409c4.858 0 3.334 8 3.334 8 3.011-.745 8.257-.42 8.257 3zm-12.108 2.761c-.16-.484-.606-.761-1.224-.761h-1.668v3.686h.907v-1.277h.761c.619 0 1.064-.277 1.224-.763.094-.292.094-.597 0-.885zm3.407-.303c-.297-.299-.711-.458-1.199-.458h-1.599v3.686h1.599c.537 0 .961-.181 1.262-.535.554-.659.586-2.035-.063-2.693zm3.701-.458h-2.628v3.686h.907v-1.472h1.49v-.732h-1.49v-.698h1.721v-.784z" />
-              </svg>
-              <p>Cover Letter</p>
-            </div>
+            <a 
+              href={WojciechMeck}
+              download="WojciechMeckCoverLetter"
+              target="_blank"
+              rel="noreferrer"
+            >            
+              <button className="flex flex-col items-center hover:cursor-pointer">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="48"
+                  height="48"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12.819 14.427c.064.267.077.679-.021.948-.128.351-.381.528-.754.528h-.637v-2.12h.496c.474 0 .803.173.916.644zm3.091-8.65c2.047-.479 4.805.279 6.09 1.179-1.494-1.997-5.23-5.708-7.432-6.882 1.157 1.168 1.563 4.235 1.342 5.703zm-7.457 7.955h-.546v.943h.546c.235 0 .467-.027.576-.227.067-.123.067-.366 0-.489-.109-.198-.341-.227-.576-.227zm13.547-2.732v13h-20v-24h8.409c4.858 0 3.334 8 3.334 8 3.011-.745 8.257-.42 8.257 3zm-12.108 2.761c-.16-.484-.606-.761-1.224-.761h-1.668v3.686h.907v-1.277h.761c.619 0 1.064-.277 1.224-.763.094-.292.094-.597 0-.885zm3.407-.303c-.297-.299-.711-.458-1.199-.458h-1.599v3.686h1.599c.537 0 .961-.181 1.262-.535.554-.659.586-2.035-.063-2.693zm3.701-.458h-2.628v3.686h.907v-1.472h1.49v-.732h-1.49v-.698h1.721v-.784z" />
+                </svg>
+                <p>Cover Letter</p>
+              </button>
+            </a>
           </div>
         </div>
       </div>
