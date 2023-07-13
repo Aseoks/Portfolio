@@ -8,8 +8,8 @@ const ContactMe = () => {
 
   const mainContentDiv = document.getElementById("mainContent");
 
-  const handleScroll = () => {
-    if (mainContentDiv.scrollTop > 10) {
+  const handleScroll = (e) => {
+    if (e.target.scrollTop > 10) {
       setVisibleButton(true);
     } else {
       setVisibleButton(false);

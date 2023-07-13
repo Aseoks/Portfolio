@@ -14,15 +14,15 @@ const AboutMe = () => {
 
   const mainContentDiv = document.getElementById("mainContent");
 
-  const handleScroll = () => {
-    if (mainContentDiv.scrollTop > 10) {
+  const handleScroll = (e) => {
+    if (e.target.scrollTop > 10) {
       setVisibleButton(true);
     } else {
       setVisibleButton(false);
     }
   };
 
-  const scrollUp = () => {
+  const scrollUp = (e) => {
     mainContentDiv.scrollTo({
       top: 0,
       behavior: "smooth",
@@ -52,7 +52,7 @@ const AboutMe = () => {
             Phasellus pellentesque, sapien id gravida dignissim
           </p>
           <div className="iconsLinks flex px-8 pt-12 gap-5">
-            <div>
+            <div className="hover:bg-sky-300 h-fit w-fit rounded-full">
               <Link to="https://github.com/Aseoks" target="_blank">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +64,7 @@ const AboutMe = () => {
                 </svg>
               </Link>
             </div>
-            <div>
+            <div className="hover:bg-sky-300 h-fit w-fit rounded-full">
               <Link
                 to="https://www.linkedin.com/in/wojciech-meck-1216b4225/"
                 target="_blank"
@@ -205,7 +205,7 @@ const AboutMe = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <button className="flex flex-col items-center hover:cursor-pointer">
+              <button className="flex flex-col items-center hover:cursor-pointer b">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="48"
@@ -220,8 +220,9 @@ const AboutMe = () => {
           </div>
         </div>
       </div>
-      {visibleButton && <BackArrow color="bg-sky-300" scrollUpFromParent={scrollUp} />}
-
+      {visibleButton && (
+        <BackArrow color="bg-sky-300" scrollUpFromParent={scrollUp} />
+      )}
       <MoveingtextBottom text="About Me" />
     </>
   );
