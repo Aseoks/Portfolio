@@ -9,7 +9,7 @@ const ContactMe = () => {
   const mainContentDiv = document.getElementById("mainContent");
 
   const handleScroll = () => {
-    if (mainContentDiv.scrollTop > 300) {
+    if (mainContentDiv.scrollTop > 10) {
       setVisibleButton(true);
     } else {
       setVisibleButton(false);
