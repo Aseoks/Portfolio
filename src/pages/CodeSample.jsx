@@ -273,7 +273,7 @@ const CodeSample = () => {
         <div className="border-2 border-black button-group px-8 md:px-32 py-12  order-1 md:order-2">
           <div className="h-full w-full md:h-1/2 md:w-3/4 mx-auto grid gap-2 md:gap-y-5 grid-cols-2 md:grid-cols-3 grid-flow-dense justify-items-center">
             <button
-              className="w-32 min-w-fit h-12 bg-fuchsia-100 hover:bg-fuchsia-300 focus:ring-4 ring-fuchsia-300 ring-inset font-mono md:px-4 md:py-2"
+              className={toggleNumber === 1 ?"w-32 min-w-fit h-12 bg-fuchsia-100 hover:bg-fuchsia-300 ring-4 ring-fuchsia-300 ring-inset font-mono md:px-4 md:py-2" :"w-32 min-w-fit h-12 bg-fuchsia-100 hover:bg-fuchsia-300  font-mono md:px-4 md:py-2"}
               onClick={() => changeToggleNumber(1)}
             >
               Form
