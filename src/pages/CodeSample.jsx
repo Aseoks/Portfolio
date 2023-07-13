@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
+  BackArrow,
   BackBrick,
   Header,
   Moveingtext,
@@ -14,6 +15,25 @@ const CodeSample = () => {
 
   const changeToggleNumber = (index) => {
     setToggleNumber(index);
+  };
+
+  const [visibleButton, setVisibleButton] = useState(false);
+
+  const mainContentDiv = document.getElementById("mainContent");
+
+  const handleScroll = () => {
+    if (mainContentDiv.scrollTop > 300) {
+      setVisibleButton(true);
+    } else {
+      setVisibleButton(false);
+    }
+  };
+
+  const scrollUp = () => {
+    mainContentDiv.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   const formCodeSample = `import React, { useState } from "react";
@@ -211,7 +231,8 @@ const CodeSample = () => {
   return (
     <>
       <Moveingtext text="Code Samples" />
-      <div className=" grid md:grid-cols-2 md:grid-rows-2 w-full h-full">
+      <div className=" grid md:grid-cols-2 md:grid-rows-2 w-full h-full" onScroll={handleScroll}
+        id="mainContent">
         <BackBrick
           pageName="Code Samples"
           color="bg-fuchsia-400"
@@ -315,6 +336,7 @@ const CodeSample = () => {
           </div>
         </div>
       </div>
+      {visibleButton && <BackArrow color="bg-fuchsia-400" scrollUpFromParent={scrollUp} />}
       <MoveingtextBottom text="Code Samples" />
     </>
   );
