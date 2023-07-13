@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   BackArrow,
   BackBrick,
@@ -8,7 +8,7 @@ import {
   FormSample,
 } from "../components";
 import "../style/CodeSample.css";
-import { CodeBlock } from "react-code-blocks";
+import { CodeBlock, dracula} from "react-code-blocks";
 
 const CodeSample = () => {
   const [toggleNumber, setToggleNumber] = useState(1);
@@ -243,12 +243,12 @@ const CodeSample = () => {
           <div className={toggleNumber === 1 ? "block" : "hidden"}>
             <Header text="Form Code:" />
 
-            <div className="py-4 h-fit md:h-12">
+            <div className="pt-8 h-36">
               <CodeBlock
                 text={formCodeSample}
-                language="jsx"
+                language="javascript"
                 showLineNumbers={true}
-                theme="atom-one-dark"
+                theme={dracula}
                 startingLineNumber={1}
                 codeBlock={{ lineNumbers: true, wrapLines: true }}
               />
