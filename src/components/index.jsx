@@ -7,3 +7,4 @@ export { default as Header } from './Header';
 export { default as BackBrick } from './BackBrick';
 export { default as FormSample } from './FormSample';
 export { default as BackArrow } from './BackArrow';
+export { default as APISample } from './APISample';
