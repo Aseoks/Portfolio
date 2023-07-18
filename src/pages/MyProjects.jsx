@@ -45,7 +45,7 @@ const MyProjects = () => {
       </div>
 
       {visibleButton && (
-        <BackArrow color="bg-purple-600" scrollUpFromParent={scrollUp} />
+        <BackArrow color="bg-purple-600" fill="black" scrollUpFromParent={scrollUp} />
       )}
       <MoveingtextBottom text="My Projects" />
     </>

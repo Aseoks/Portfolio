@@ -409,7 +409,7 @@ const CodeSample = () => {
           </div>
         </div>
       </div>
-      {visibleButton && <BackArrow color="bg-fuchsia-400" scrollUpFromParent={scrollUp} />}
+      {visibleButton && <BackArrow color="bg-fuchsia-400" fill="black" scrollUpFromParent={scrollUp} />}
       <MoveingtextBottom text="Code Samples" />
     </>
   );

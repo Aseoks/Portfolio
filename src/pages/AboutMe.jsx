@@ -66,7 +66,7 @@ const AboutMe = () => {
             </div>
             <div className="hover:bg-sky-300 h-fit w-fit rounded-full">
               <Link
-                to="https://www.linkedin.com/in/wojciech-meck-1216b4225/"
+                to="https://www.linkedin.com/in/wojciechmeck/"
                 target="_blank"
               >
                 <svg
@@ -221,7 +221,7 @@ const AboutMe = () => {
         </div>
       </div>
       {visibleButton && (
-        <BackArrow color="bg-sky-300" scrollUpFromParent={scrollUp} />
+        <BackArrow color="bg-sky-300" fill="black" scrollUpFromParent={scrollUp} />
       )}
       <MoveingtextBottom text="About Me" />
     </>
