@@ -121,8 +121,8 @@ const ContactMe = () => {
             <div className="flex text-base md:text-xl py-2">
               <p className="pr-2 font-semibold font-roboto">Github:</p>
               <p className="hover:border-b-2 duration-75 border-yellow-400 ">
-                <Link to="https://github.com/Aseoks" target="_blank" className="font-mono break-all">
-                  https://github.com/Aseoks
+                <Link to="https://github.com/WMeck" target="_blank" className="font-mono break-all">
+                https://github.com/WMeck
                 </Link>
               </p>
             </div>

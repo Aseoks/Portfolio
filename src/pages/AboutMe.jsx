@@ -53,7 +53,7 @@ const AboutMe = () => {
           </p>
           <div className="iconsLinks flex px-8 pt-12 gap-5">
             <div className="hover:bg-sky-300 h-fit w-fit rounded-full">
-              <Link to="https://github.com/Aseoks" target="_blank">
+              <Link to="https://github.com/WMeck" target="_blank">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="48"
