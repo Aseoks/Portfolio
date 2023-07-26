@@ -5,7 +5,7 @@ const BackBrick = ({pageName, color, hoverColor}) => {
   return (
     <>
       <Link to="/">
-          <div className={`h-full  text-4xl ${color} ${hoverColor} uppercase flex flex-col gap-4 justify-center items-center border-2 border-black font-bold underline hover:cursor-pointer font-roboto py-8`}>
+          <div className={`h-full text-4xl ${color} ${hoverColor} uppercase flex flex-col gap-4 justify-center items-center border-2 border-black font-bold underline hover:cursor-pointer font-roboto py-8`}>
             <h2>{pageName}</h2>
             <div>
             <svg

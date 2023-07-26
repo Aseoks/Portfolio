@@ -45,11 +45,7 @@ const AboutMe = () => {
         <div className="border-2 border-black pb-8">
           <Header text="I`m Wojtek - Junior Web Developer" />
           <p className="font-mono px-8  pt-8">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-            elementum mattis ipsum in tincidunt. Nulla tempor leo ac mauris
-            efficitur condimentum. Nam a venenatis eros. Aenean at ligula a
-            lorem volutpat tincidunt at quis odio. Aliquam erat volutpat.
-            Phasellus pellentesque, sapien id gravida dignissim
+          I am a graduate Web Developer and an aspiring Frontend Engineer, a subject which I am very passionate about. I am interested in web technologies, and I am continuesly growing my skillset in trending solutions.
           </p>
           <div className="iconsLinks flex px-8 pt-12 gap-5">
             <div className="hover:bg-sky-300 h-fit w-fit rounded-full">
@@ -177,12 +173,12 @@ const AboutMe = () => {
           </div>
         </div>
         <div className="border-2 border-black pb-8">
-          <Header text="My Documents" />
+          <Header text="My Documents:" />
           <div className="flex gap-5 px-8 pt-12">
             <div>
               <a
                 href={WojciechMeck}
-                download="WojciechMeckCoverLetter"
+                download="WojciechMeckCV"
                 target="_blank"
                 rel="noreferrer"
               >

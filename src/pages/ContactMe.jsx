@@ -75,7 +75,7 @@ const ContactMe = () => {
                   id="name"
                   name='from_name'
                   onChange={(e) => handleInputChange(e)}
-                  className="bg-yellow-300 px-1"
+                  className="border-bottom border-b-2 focus:bg-yellow-300 border-black px-1"
                   placeholder="Jhon"
                 />
               </div>
@@ -87,7 +87,7 @@ const ContactMe = () => {
                   id="email"                  
                   name='reply_to'
                   onChange={(e) => handleInputChange(e)}
-                  className="bg-yellow-300 px-1"
+                  className="border-bottom border-b-2 focus:bg-yellow-300 border-black px-1"
                   placeholder="jhonvojtyla@gmail.vo"
                 />
               </div>
@@ -99,12 +99,12 @@ const ContactMe = () => {
                   name='message'
                   onChange={(e) => handleInputChange(e)}
                   rows='6'
-                  className="w-full bg-yellow-300 p-1"
+                  className="w-full border-bottom border-b-2 focus:bg-yellow-300 border-black px-1"
                   placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation"
                 />
               </div>
 
-              <button type="submit" className="my-4 px-4 py-2 bg-black text-yellow-300 text-xl font-semibold">Submit</button>
+              <button type="submit" className="my-4 px-4 py-2 bg-black text-yellow-300 text-xl font-semibold hover:bg-yellow-300 hover:text-black">Submit</button>
             </form>
           </div>
         </div>
